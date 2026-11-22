@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "honoi"
+version = "1.0.0"
+description = "Tower of Hanoi game on pygame with drag and drop, undo, hints and an animated solver"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Edward Lik" }]
+requires-python = ">=3.10"
+dependencies = ["pygame-ce>=2.4"]
+keywords = ["tower-of-hanoi", "hanoi", "puzzle", "game", "pygame", "recursion"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Games/Entertainment :: Puzzle Games",
+    "Intended Audience :: Education",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+honoi = "honoi.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/mredwardlik/honoi"
+Issues = "https://github.com/mredwardlik/honoi/issues"
+
+[tool.setuptools]
+packages = ["honoi"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "honoi"]
+addopts = "--doctest-modules --ignore=honoi/__main__.py"
